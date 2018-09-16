@@ -47,4 +47,11 @@ class RoomTest < Minitest::Test
     assert_equal(50, @guest1.wallet)
     assert_equal(50, @room.till)
   end
+
+  def test_check_in_guest
+    @room.check_in(@guest3,@room.entry_fee)
+    assert_equal(1, @room.guests.length)
+    assert_equal(150, @guest3.wallet)
+    assert_equal(50, @room.till)
+  end
 end

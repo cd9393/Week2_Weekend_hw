@@ -29,6 +29,10 @@ class Room
   def take_entrance_fee(fee, guest)
     guest.pay(fee)
     @till += fee
+  end
 
+  def check_in(guest, fee)
+    add_guest(guest)
+    take_entrance_fee(fee,guest)
   end
 end

@@ -48,10 +48,15 @@ class RoomTest < Minitest::Test
     assert_equal(50, @room.till)
   end
 
+  # def test_fav_song_in_room
+  #   assert_equal("Wooo", @guest.fav_song_in_room)
+  # end
+
   def test_check_in_guest
     @room.check_in(@guest3,@room.entry_fee)
     assert_equal(1, @room.guests.length)
     assert_equal(150, @guest3.wallet)
     assert_equal(50, @room.till)
+    assert_equal("Wooo", @room.check_in(@guest3,@room.entry_fee))
   end
 end

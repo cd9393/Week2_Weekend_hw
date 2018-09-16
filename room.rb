@@ -31,8 +31,10 @@ class Room
     @till += fee
   end
 
+
   def check_in(guest, fee)
     add_guest(guest)
     take_entrance_fee(fee,guest)
+    guest.cheer if @songs.include?(guest.fav_song)
   end
 end

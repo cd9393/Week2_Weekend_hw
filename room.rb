@@ -1,5 +1,5 @@
 class Room
-  attr_reader :guests, :songs, :entry_fee
+  attr_reader :guests, :songs, :entry_fee, :till
 
   def initialize(name, songs, entry_fee,size)
     @name = name
@@ -7,6 +7,7 @@ class Room
     @entry_fee = entry_fee
     @guests = []
     @size = size
+    @till = 0
   end
 
   def add_guest(guest)
@@ -27,5 +28,7 @@ class Room
 
   def take_entrance_fee(fee, guest)
     guest.pay(fee)
-  end 
+    @till += fee
+
+  end
 end
